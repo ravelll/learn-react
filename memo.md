@@ -18,6 +18,7 @@
 * render メソッドで HTML を返す
   * render() { return (<div><div/>) } みたいな感じ
 * render() は表示したいものの*説明*を返す
+* 親から貰った props を操作したり表示したりするだけな子コンポーネント => controlled component
 
 # React.Element
 
@@ -34,3 +35,8 @@
 * state はコンストラクタ内で初期化する
   * コンストラクタは props を受け取り、最初に super(props) してあげる（サブクラスなので）
 * state の変更は setState() で行う
+* 子コンポーネントの状態を集約して親で使いたいときとか、子コンポーネント動詞が相互作用したいときは親コンポーネントに shared state を作り、子コンポーネントに props として渡す
+* onClick などのイベントハンドラも props として子コンポーネントに渡す
+  * Vue でいう $emit を props に関数を渡すことで実現している
+  * ただ関数を渡しているだけなので、onClick という名前も慣習でしかない！
+  * Vue よりもメタプロが少ないなと思った。素朴
